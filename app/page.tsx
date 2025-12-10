@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import {useEffect, useRef} from 'react';
 import Image from 'next/image';
 
 export default function Home() {
@@ -8,20 +8,20 @@ export default function Home() {
 
     // Skills data for the carousel
     const skills = [
-        { name: 'Go', icon: '/icons/go.svg' },
-        { name: 'PHP', icon: '/icons/php.svg' },
-        { name: 'Laravel', icon: '/icons/laravel.svg' },
-        { name: 'JavaScript', icon: '/icons/javascript.svg' },
-        { name: 'PostgreSQL', icon: '/icons/postgresql.svg' },
-        { name: 'MariaDB', icon: '/icons/mysql.svg' },
-        { name: 'Redis', icon: '/icons/redis.svg' },
-        { name: 'Docker', icon: '/icons/docker.svg' },
-        { name: 'AWS', icon: '/icons/aws.svg' },
-        { name: 'GCP', icon: '/icons/gcp.svg' },
-        { name: 'Terraform', icon: '/icons/terraform.svg' },
-        { name: 'Git', icon: '/icons/git.svg' },
-        { name: 'Linux', icon: '/icons/linux.svg' },
-        { name: 'Kubernetes', icon: '/icons/kubernetes.svg' },
+        {name: 'Go', icon: '/icons/go.svg'},
+        {name: 'PHP', icon: '/icons/php.svg'},
+        {name: 'Laravel', icon: '/icons/laravel.svg'},
+        {name: 'JavaScript', icon: '/icons/javascript.svg'},
+        {name: 'PostgreSQL', icon: '/icons/postgresql.svg'},
+        {name: 'MariaDB', icon: '/icons/mysql.svg'},
+        {name: 'Redis', icon: '/icons/redis.svg'},
+        {name: 'Docker', icon: '/icons/docker.svg'},
+        {name: 'AWS', icon: '/icons/aws.svg'},
+        {name: 'GCP', icon: '/icons/gcp.svg'},
+        {name: 'Terraform', icon: '/icons/terraform.svg'},
+        {name: 'Git', icon: '/icons/git.svg'},
+        {name: 'Linux', icon: '/icons/linux.svg'},
+        {name: 'Kubernetes', icon: '/icons/kubernetes.svg'},
     ];
 
     useEffect(() => {
@@ -194,101 +194,128 @@ export default function Home() {
                                             <div className="holo-glare"></div>
                                             <div className="holo-content">
                                                 <div className="space-y-1 relative z-10">
-                                        <div className="flex">
-                                            <span className="text-zinc-500">{'{'}</span>
-                                        </div>
-                                        <div className="pl-4 animate-fade-in" style={{animationDelay: '0.1s'}}>
-                                            <span className="text-blue-400">&quot;name&quot;</span>
-                                            <span className="text-zinc-500">: </span>
-                                            <span className="text-yellow-300">&quot;Fauzy Madani&quot;</span>
-                                            <span className="text-zinc-500">,</span>
-                                        </div>
-                                        <div className="pl-4 animate-fade-in" style={{animationDelay: '0.2s'}}>
-                                            <span className="text-blue-400">&quot;role&quot;</span>
-                                            <span className="text-zinc-500">: </span>
-                                            <span className="text-yellow-300">&quot;Backend Developer&quot;</span>
-                                            <span className="text-zinc-500">,</span>
-                                        </div>
-                                        <div className="pl-4 animate-fade-in" style={{animationDelay: '0.3s'}}>
-                                            <span className="text-blue-400">&quot;status&quot;</span>
-                                            <span className="text-zinc-500">: </span>
-                                            <span className="text-yellow-300">&quot;Student &amp; Engineer&quot;</span>
-                                            <span className="text-zinc-500">,</span>
-                                        </div>
-                                        <div className="pl-4 animate-fade-in" style={{animationDelay: '0.4s'}}>
-                                            <span className="text-blue-400">&quot;languages&quot;</span>
-                                            <span className="text-zinc-500">: [</span>
-                                        </div>
-                                        <div className="pl-8 animate-fade-in" style={{animationDelay: '0.5s'}}>
-                                            <span className="text-yellow-300">&quot;Go&quot;</span>
-                                            <span className="text-zinc-500">, </span>
-                                            <span className="text-yellow-300">&quot;PHP&quot;</span>
-                                            <span className="text-zinc-500">, </span>
-                                            <span className="text-yellow-300">&quot;JavaScript&quot;</span>
-                                            <span className="text-zinc-500">, </span>
-                                            <span className="text-yellow-300">&quot;SQL&quot;</span>
-                                        </div>
-                                        <div className="pl-4 animate-fade-in" style={{animationDelay: '0.6s'}}>
-                                            <span className="text-zinc-500">],</span>
-                                        </div>
-                                        <div className="pl-4 animate-fade-in" style={{animationDelay: '0.7s'}}>
-                                            <span className="text-blue-400">&quot;specialties&quot;</span>
-                                            <span className="text-zinc-500">: [</span>
-                                        </div>
-                                        <div className="pl-8 animate-fade-in" style={{animationDelay: '0.8s'}}>
-                                            <span className="text-yellow-300">&quot;REST API Development&quot;</span>
-                                            <span className="text-zinc-500">,</span>
-                                        </div>
-                                        <div className="pl-8 animate-fade-in" style={{animationDelay: '0.9s'}}>
-                                            <span className="text-yellow-300">&quot;Database Design&quot;</span>
-                                            <span className="text-zinc-500">,</span>
-                                        </div>
-                                        <div className="pl-8 animate-fade-in" style={{animationDelay: '1s'}}>
-                                            <span className="text-yellow-300">&quot;Cloud Infrastructure&quot;</span>
-                                            <span className="text-zinc-500">,</span>
-                                        </div>
-                                        <div className="pl-8 animate-fade-in" style={{animationDelay: '1.1s'}}>
-                                            <span className="text-yellow-300">&quot;Microservices&quot;</span>
-                                        </div>
-                                        <div className="pl-4 animate-fade-in" style={{animationDelay: '1.2s'}}>
-                                            <span className="text-zinc-500">],</span>
-                                        </div>
-                                        <div className="pl-4 animate-fade-in" style={{animationDelay: '1.3s'}}>
-                                            <span className="text-blue-400">&quot;tools&quot;</span>
-                                            <span className="text-zinc-500">: [</span>
-                                        </div>
-                                        <div className="pl-8 animate-fade-in" style={{animationDelay: '1.4s'}}>
-                                            <span className="text-yellow-300">&quot;Docker&quot;</span>
-                                            <span className="text-zinc-500">, </span>
-                                            <span className="text-yellow-300">&quot;AWS&quot;</span>
-                                            <span className="text-zinc-500">, </span>
-                                            <span className="text-yellow-300">&quot;Postman&quot;</span>
-                                            <span className="text-zinc-500">, </span>
-                                            <span className="text-yellow-300">&quot;Terraform&quot;</span>
-                                        </div>
-                                        <div className="pl-4 animate-fade-in" style={{animationDelay: '1.5s'}}>
-                                            <span className="text-zinc-500">],</span>
-                                        </div>
-                                        <div className="pl-4 animate-fade-in" style={{animationDelay: '1.6s'}}>
-                                            <span className="text-blue-400">&quot;available&quot;</span>
-                                            <span className="text-zinc-500">: </span>
-                                            <span className="text-green-400">true</span>
-                                        </div>
-                                        <div className="flex animate-fade-in" style={{animationDelay: '1.7s'}}>
-                                            <span className="text-zinc-500">{'}'}</span>
-                                        </div>
-                                    </div>
-                                    <div className="mt-4 pt-4 border-t border-zinc-800 text-zinc-600 text-xs animate-fade-in relative z-10" style={{animationDelay: '1.8s'}}>
-                                        <div className="flex items-center gap-2">
-                                            <span>Status:</span>
-                                            <span className="text-green-400">200 OK</span>
-                                            <span className="inline-block w-2 h-2 bg-green-400 rounded-full"></span>
-                                        </div>
-                                        <div className="flex items-center gap-2">
-                                            <span>Response Time:</span>
-                                            <span className="text-green-400">42ms</span>
-                                        </div>
-                                    </div>
+                                                    <div className="flex">
+                                                        <span className="text-zinc-500">{'{'}</span>
+                                                    </div>
+                                                    <div className="pl-4 animate-fade-in"
+                                                         style={{animationDelay: '0.1s'}}>
+                                                        <span className="text-blue-400">&quot;name&quot;</span>
+                                                        <span className="text-zinc-500">: </span>
+                                                        <span
+                                                            className="text-yellow-300">&quot;Fauzy Madani&quot;</span>
+                                                        <span className="text-zinc-500">,</span>
+                                                    </div>
+                                                    <div className="pl-4 animate-fade-in"
+                                                         style={{animationDelay: '0.2s'}}>
+                                                        <span className="text-blue-400">&quot;role&quot;</span>
+                                                        <span className="text-zinc-500">: </span>
+                                                        <span
+                                                            className="text-yellow-300">&quot;Backend Developer&quot;</span>
+                                                        <span className="text-zinc-500">,</span>
+                                                    </div>
+                                                    <div className="pl-4 animate-fade-in"
+                                                         style={{animationDelay: '0.3s'}}>
+                                                        <span className="text-blue-400">&quot;status&quot;</span>
+                                                        <span className="text-zinc-500">: </span>
+                                                        <span
+                                                            className="text-yellow-300">&quot;Student &amp; Engineer&quot;</span>
+                                                        <span className="text-zinc-500">,</span>
+                                                    </div>
+                                                    <div className="pl-4 animate-fade-in"
+                                                         style={{animationDelay: '0.4s'}}>
+                                                        <span className="text-blue-400">&quot;languages&quot;</span>
+                                                        <span className="text-zinc-500">: [</span>
+                                                    </div>
+                                                    <div className="pl-8 animate-fade-in"
+                                                         style={{animationDelay: '0.5s'}}>
+                                                        <span className="text-yellow-300">&quot;Go&quot;</span>
+                                                        <span className="text-zinc-500">, </span>
+                                                        <span className="text-yellow-300">&quot;PHP&quot;</span>
+                                                        <span className="text-zinc-500">, </span>
+                                                        <span className="text-yellow-300">&quot;JavaScript&quot;</span>
+                                                        <span className="text-zinc-500">, </span>
+                                                        <span className="text-yellow-300">&quot;SQL&quot;</span>
+                                                    </div>
+                                                    <div className="pl-4 animate-fade-in"
+                                                         style={{animationDelay: '0.6s'}}>
+                                                        <span className="text-zinc-500">],</span>
+                                                    </div>
+                                                    <div className="pl-4 animate-fade-in"
+                                                         style={{animationDelay: '0.7s'}}>
+                                                        <span className="text-blue-400">&quot;specialties&quot;</span>
+                                                        <span className="text-zinc-500">: [</span>
+                                                    </div>
+                                                    <div className="pl-8 animate-fade-in"
+                                                         style={{animationDelay: '0.8s'}}>
+                                                        <span
+                                                            className="text-yellow-300">&quot;REST API Development&quot;</span>
+                                                        <span className="text-zinc-500">,</span>
+                                                    </div>
+                                                    <div className="pl-8 animate-fade-in"
+                                                         style={{animationDelay: '0.9s'}}>
+                                                        <span
+                                                            className="text-yellow-300">&quot;Database Design&quot;</span>
+                                                        <span className="text-zinc-500">,</span>
+                                                    </div>
+                                                    <div className="pl-8 animate-fade-in"
+                                                         style={{animationDelay: '1s'}}>
+                                                        <span
+                                                            className="text-yellow-300">&quot;Cloud Infrastructure&quot;</span>
+                                                        <span className="text-zinc-500">,</span>
+                                                    </div>
+                                                    <div className="pl-8 animate-fade-in"
+                                                         style={{animationDelay: '1.1s'}}>
+                                                        <span
+                                                            className="text-yellow-300">&quot;Microservices&quot;</span>
+                                                    </div>
+                                                    <div className="pl-4 animate-fade-in"
+                                                         style={{animationDelay: '1.2s'}}>
+                                                        <span className="text-zinc-500">],</span>
+                                                    </div>
+                                                    <div className="pl-4 animate-fade-in"
+                                                         style={{animationDelay: '1.3s'}}>
+                                                        <span className="text-blue-400">&quot;tools&quot;</span>
+                                                        <span className="text-zinc-500">: [</span>
+                                                    </div>
+                                                    <div className="pl-8 animate-fade-in"
+                                                         style={{animationDelay: '1.4s'}}>
+                                                        <span className="text-yellow-300">&quot;Docker&quot;</span>
+                                                        <span className="text-zinc-500">, </span>
+                                                        <span className="text-yellow-300">&quot;AWS&quot;</span>
+                                                        <span className="text-zinc-500">, </span>
+                                                        <span className="text-yellow-300">&quot;Postman&quot;</span>
+                                                        <span className="text-zinc-500">, </span>
+                                                        <span className="text-yellow-300">&quot;Terraform&quot;</span>
+                                                    </div>
+                                                    <div className="pl-4 animate-fade-in"
+                                                         style={{animationDelay: '1.5s'}}>
+                                                        <span className="text-zinc-500">],</span>
+                                                    </div>
+                                                    <div className="pl-4 animate-fade-in"
+                                                         style={{animationDelay: '1.6s'}}>
+                                                        <span className="text-blue-400">&quot;available&quot;</span>
+                                                        <span className="text-zinc-500">: </span>
+                                                        <span className="text-green-400">true</span>
+                                                    </div>
+                                                    <div className="flex animate-fade-in"
+                                                         style={{animationDelay: '1.7s'}}>
+                                                        <span className="text-zinc-500">{'}'}</span>
+                                                    </div>
+                                                </div>
+                                                <div
+                                                    className="mt-4 pt-4 border-t border-zinc-800 text-zinc-600 text-xs animate-fade-in relative z-10"
+                                                    style={{animationDelay: '1.8s'}}>
+                                                    <div className="flex items-center gap-2">
+                                                        <span>Status:</span>
+                                                        <span className="text-green-400">200 OK</span>
+                                                        <span
+                                                            className="inline-block w-2 h-2 bg-green-400 rounded-full"></span>
+                                                    </div>
+                                                    <div className="flex items-center gap-2">
+                                                        <span>Response Time:</span>
+                                                        <span className="text-green-400">42ms</span>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -500,7 +527,8 @@ export default function Home() {
                     </div>
 
                     <div className="mt-12 p-6 border border-zinc-200 dark:border-zinc-800">
-                        <h3 className="font-semibold mb-4 text-sm uppercase tracking-wide text-zinc-500">Currently Learning</h3>
+                        <h3 className="font-semibold mb-4 text-sm uppercase tracking-wide text-zinc-500">Currently
+                            Learning</h3>
                         <div className="grid md:grid-cols-2 gap-x-8 gap-y-3 text-sm">
                             <div>• Advanced Go Patterns</div>
                             <div>• Microservices Architecture</div>
