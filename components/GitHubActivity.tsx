@@ -83,9 +83,17 @@ export default function GitHubActivity() {
     switch (event.type) {
       case 'PushEvent':
         const commitCount = event.payload?.commits?.length || 0;
+        // Don't show events with 0 commits (usually branch deletions)
+        if (commitCount === 0) {
+          return {
+            action: 'Updated',
+            detail: 'branch',
+            repo: repoName
+          };
+        }
         return {
           action: 'Pushed',
-          detail: `${commitCount} commit${commitCount > 1 ? 's' : ''}`,
+          detail: `${commitCount} commit${commitCount !== 1 ? 's' : ''}`,
           repo: repoName
         };
       case 'CreateEvent':
@@ -95,14 +103,16 @@ export default function GitHubActivity() {
           repo: repoName
         };
       case 'PullRequestEvent':
+        const prAction = event.payload?.action || 'updated';
         return {
-          action: event.payload?.action || 'Updated',
+          action: prAction.charAt(0).toUpperCase() + prAction.slice(1),
           detail: 'pull request',
           repo: repoName
         };
       case 'IssuesEvent':
+        const issueAction = event.payload?.action || 'updated';
         return {
-          action: event.payload?.action || 'Updated',
+          action: issueAction.charAt(0).toUpperCase() + issueAction.slice(1),
           detail: 'issue',
           repo: repoName
         };
