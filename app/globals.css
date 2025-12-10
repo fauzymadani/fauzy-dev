@@ -1,26 +1,376 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --background: #ffffff;
+    --foreground: #09090b;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+    :root {
+        --background: #09090b;
+        --foreground: #fafafa;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--foreground);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
+
+::selection {
+    background-color: #09090b;
+    color: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+    ::selection {
+        background-color: #fafafa;
+        color: #09090b;
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes glow-pulse {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(34, 197, 94, 0.5), 0 0 60px rgba(34, 197, 94, 0.2);
+    }
+}
+
+@keyframes holo-bg {
+    0% {
+        background-position: 0 var(--background-y), 0 0, center;
+    }
+    100% {
+        background-position: 0 var(--background-y), 90% 90%, center;
+    }
+}
+
+.animate-fade-in {
+    animation: fade-in 0.5s ease-out forwards;
+    opacity: 0;
+}
+
+/* Holographic Card Styles */
+.holo-card-wrapper {
+    perspective: 1000px;
+    transform: translate3d(0, 0, 0.1px);
+    position: relative;
+    touch-action: none;
+    --pointer-x: 50%;
+    --pointer-y: 50%;
+    --pointer-from-center: 0;
+    --pointer-from-top: 0.5;
+    --pointer-from-left: 0.5;
+    --card-opacity: 0;
+    --rotate-x: 0deg;
+    --rotate-y: 0deg;
+    --background-x: 50%;
+    --background-y: 50%;
+    --sunpillar-1: hsl(2, 100%, 73%);
+    --sunpillar-2: hsl(53, 100%, 69%);
+    --sunpillar-3: hsl(93, 100%, 69%);
+    --sunpillar-4: hsl(176, 100%, 76%);
+    --sunpillar-5: hsl(228, 100%, 74%);
+    --sunpillar-6: hsl(283, 100%, 73%);
+    --card-radius: 12px;
+}
+
+/* Skills Carousel Styles */
+.skills-carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 2rem 0;
+    mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+.skills-track {
+    display: flex;
+    gap: 4rem;
+    animation: scroll 40s linear infinite;
+    width: max-content;
+}
+
+.skills-carousel:hover .skills-track {
+    animation-play-state: paused;
+}
+
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    min-width: 120px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: translateY(-8px);
+}
+
+.skill-logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    filter: grayscale(100%) brightness(0.5);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.skill-item:hover .skill-logo {
+    filter: grayscale(0%) brightness(1);
+    transform: scale(1.1);
+}
+
+.skill-name {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: rgb(113 113 122);
+    transition: color 0.3s ease;
+}
+
+.skill-item:hover .skill-name {
+    color: rgb(24 24 27);
+}
+
+@media (prefers-color-scheme: dark) {
+    .skill-logo {
+        filter: grayscale(100%) brightness(0.7);
+    }
+
+    .skill-item:hover .skill-logo {
+        filter: grayscale(0%) brightness(1.1);
+    }
+
+    .skill-item:hover .skill-name {
+        color: rgb(250 250 250);
+    }
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-50%));
+    }
+}
+
+@media (max-width: 768px) {
+    .skills-track {
+        gap: 2rem;
+    }
+
+    .skill-logo {
+        width: 60px;
+        height: 60px;
+    }
+
+    .skill-item {
+        min-width: 80px;
+    }
+}
+
+.holo-behind {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: radial-gradient(
+            circle at var(--pointer-x) var(--pointer-y),
+            rgba(125, 190, 255, 0.67) 0%,
+            transparent 25%
+    );
+    filter: blur(50px) saturate(1.1);
+    opacity: calc(0.8 * var(--card-opacity));
+    transition: opacity 200ms ease;
+}
+
+.holo-card-wrapper:hover .holo-behind {
+    --card-opacity: 1;
+}
+
+.holo-card-shell {
+    position: relative;
+    z-index: 1;
+}
+
+.holo-card {
+    display: grid;
+    border-radius: var(--card-radius);
+    position: relative;
+    background: rgba(0, 0, 0, 0.9);
+    box-shadow: rgba(0, 0, 0, 0.8) calc((var(--pointer-from-left) * 10px) - 3px) calc((var(--pointer-from-top) * 20px) - 6px) 20px -5px;
+    transition: transform 1s ease;
+    transform: translateZ(0) rotateX(0deg) rotateY(0deg);
+    backface-visibility: hidden;
+    overflow: hidden;
+    padding: 1.5rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.875rem;
+    color: #22c55e;
+}
+
+.holo-card:hover {
+    transition: none;
+    transform: translateZ(0) rotateX(var(--rotate-y)) rotateY(var(--rotate-x));
+}
+
+.holo-card > * {
+    display: grid;
+    grid-area: 1/-1;
+    border-radius: var(--card-radius);
+    pointer-events: none;
+}
+
+.holo-inside {
+    inset: 0;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.9);
+    transform: none;
+}
+
+.holo-shine {
+    --space: 5%;
+    --angle: -45deg;
+    transform: translate3d(0, 0, 1px);
+    overflow: hidden;
+    z-index: 3;
+    background: transparent;
+    background-size: cover;
+    background-position: center;
+    background-image: repeating-linear-gradient(
+            0deg,
+            var(--sunpillar-1) calc(var(--space) * 1),
+            var(--sunpillar-2) calc(var(--space) * 2),
+            var(--sunpillar-3) calc(var(--space) * 3),
+            var(--sunpillar-4) calc(var(--space) * 4),
+            var(--sunpillar-5) calc(var(--space) * 5),
+            var(--sunpillar-6) calc(var(--space) * 6),
+            var(--sunpillar-1) calc(var(--space) * 7)
+    ),
+    repeating-linear-gradient(
+            var(--angle),
+            #0e152e 0%,
+            hsl(180, 10%, 60%) 3.8%,
+            hsl(180, 29%, 66%) 4.5%,
+            hsl(180, 10%, 60%) 5.2%,
+            #0e152e 10%,
+            #0e152e 12%
+    ),
+    radial-gradient(
+            farthest-corner circle at var(--pointer-x) var(--pointer-y),
+            hsla(0, 0%, 0%, 0.1) 12%,
+            hsla(0, 0%, 0%, 0.15) 20%,
+            hsla(0, 0%, 0%, 0.25) 120%
+    );
+    background-position: 0 var(--background-y),
+    var(--background-x) var(--background-y),
+    center;
+    background-blend-mode: color, hard-light;
+    background-size: 500% 500%,
+    300% 300%,
+    200% 200%;
+    background-repeat: repeat;
+    transition: filter 0.8s ease;
+    filter: brightness(0.66) contrast(1.33) saturate(0.33) opacity(0.5);
+    animation: holo-bg 18s linear infinite;
+    animation-play-state: running;
+    mix-blend-mode: color-dodge;
+}
+
+.holo-shine::before,
+.holo-shine::after {
+    content: '';
+    background-position: center;
+    background-size: cover;
+    grid-area: 1/1;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    border-radius: var(--card-radius);
+}
+
+.holo-card:hover .holo-shine {
+    filter: brightness(0.85) contrast(1.5) saturate(0.5);
+    animation-play-state: paused;
+}
+
+.holo-card:hover .holo-shine::before,
+.holo-card:hover .holo-shine::after {
+    opacity: 1;
+}
+
+.holo-shine::before {
+    background-image: linear-gradient(
+            45deg,
+            var(--sunpillar-4),
+            var(--sunpillar-5),
+            var(--sunpillar-6),
+            var(--sunpillar-1),
+            var(--sunpillar-2),
+            var(--sunpillar-3)
+    ),
+    radial-gradient(
+            circle at var(--pointer-x) var(--pointer-y),
+            hsl(0, 0%, 70%) 0%,
+            hsla(0, 0%, 30%, 0.2) 90%
+    );
+    background-size: 250% 250%,
+    100% 100%;
+    background-position: var(--pointer-x) var(--pointer-y),
+    center;
+    background-blend-mode: color-dodge;
+    filter: brightness(calc(2 - var(--pointer-from-center))) contrast(calc(var(--pointer-from-center) + 2)) saturate(calc(0.5 + var(--pointer-from-center)));
+    mix-blend-mode: luminosity;
+}
+
+.holo-glare {
+    transform: translate3d(0, 0, 1.1px);
+    overflow: hidden;
+    background-image: radial-gradient(
+            farthest-corner circle at var(--pointer-x) var(--pointer-y),
+            hsl(248, 25%, 80%) 12%,
+            hsla(207, 40%, 30%, 0.8) 90%
+    );
+    mix-blend-mode: overlay;
+    filter: brightness(0.8) contrast(1.2);
+    z-index: 4;
+}
+
+.holo-content {
+    position: relative;
+    z-index: 5;
+    pointer-events: auto;
+    padding: 0;
+    mix-blend-mode: normal;
+    transform: translate3d(
+            calc(var(--pointer-from-left) * -6px + 3px),
+            calc(var(--pointer-from-top) * -6px + 3px),
+            0.1px
+    );
+}
+
